@@ -1,0 +1,30 @@
+# of courses: 3
+0 Department: CSE
+1 Course number: 030
+2 Course name: Data Structures
+3 Credits:4
+4 Lecture days: Monday, Wednesday
+5 Start time: 4:30pm
+6 End time: 5:45pm
+7 Avg Grade: 85
+
+'''
+Line 0: Number of courses (the following data should exist for each course)
+Line 1: Course department
+Line 2: Course number
+Line 3: Course name
+Line 4: Credits
+Line 5: Lecture days
+Line 6: Start time of the lecture
+Line 7: End time of the lecture
+Line 8: Average grade (percentage) for the course
+'''
+
+#Output 
+'''
+COURSE 1: <Course department><Course number>:<Course name>
+Number of Credits: <Credits>
+Days of Lectures: <Lecture days>Lecture Time: <Start time> - <End time>
+Stat: on average, students get <average grade> in this course
+REPEAT for each additional class, up to <Number of courses>
+'''

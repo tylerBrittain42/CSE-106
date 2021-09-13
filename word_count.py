@@ -1,3 +1,4 @@
+# Should there be 3 or 2
 count = 0
 word = input("Please enter a word: ").lower()
 with open("PythonSummary.txt", "r") as file:
