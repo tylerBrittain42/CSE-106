@@ -8,4 +8,4 @@ with open("PythonSummary.txt", "r") as file:
         for i in curLine:
             count += i.count(word)
         line = file.readline()
-print("The word {} appears {} times.".format(word, count))
+print(f"The word {word} appears {count} times.")
