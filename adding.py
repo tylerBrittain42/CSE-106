@@ -12,7 +12,7 @@ try:
         raise TooShort
     for i in num_list:
         sum += float(i)
-    print(sum)
+    print(f'{sum}')
 except(ValueError):
     print("Error: non int value detected")
 except(TooShort):
@@ -20,12 +20,3 @@ except(TooShort):
 
 
 
-# if(any(type(entry) is (ord() for entry in num_list)):
-#     print("String detected")
-
-
-# for i in numbers.split(" "):
-#     sum += int(i)
-# print(sum)
-# except():
-# print(e)

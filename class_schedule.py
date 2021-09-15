@@ -13,11 +13,11 @@ class course:
         self.avg = avg
 
     def printSummary(self):
-        print("Course {}: {}: {}".format(self.number,self.id,self.name))
-        print("Number of Credits: {}".format(self.credits))
-        print("Days of Lectures: {}".format(self.days))
-        print("Lecture Time: {} - {}".format(self.start,self.end))
-        print("Stat: on average, students get {}% in this course".format(self.avg))
+        print(f"Course {self.number}: {self.id}: {self.name}")
+        print(f"Number of Credits: {self.credits}")
+        print(f"Days of Lectures: {self.days}")
+        print(f"Lecture Time: {self.start} - {self.end}")
+        print(f"Stat: on average, students get {self.avg}% in this course")
 
 courses = []
 

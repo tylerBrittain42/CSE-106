@@ -39,7 +39,7 @@ while(option != 5):
     elif(option == 2):
         print("Get student grade")
         student = input('Student name:')
-        print("{} has a grade {}".format(student,grades[student]))
+        print(f"{student} has a grade {grades[student]}")
 
     # edit student grade
     elif(option == 3):
