@@ -1,4 +1,8 @@
+# CSE-106 Lab_1 Q5
+# Tyler Brittain
+
 import json
+
 '''
 5) Create a grades program that does the following (25 points):
 a. Allows a user to create a student name and grade
@@ -27,6 +31,7 @@ option = None
 while(option != 5):
     displayOptions()
     option = int(input("Options:"))
+    print()
     
     # add a student
     if(option == 1):

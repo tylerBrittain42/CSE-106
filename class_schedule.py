@@ -1,3 +1,5 @@
+# CSE-106 Lab_1 Q4
+# Tyler Brittain
 class course:
 
     def __init__(self,number, department,id,name,credits,days,start,end,avg):

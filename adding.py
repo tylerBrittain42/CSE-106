@@ -1,3 +1,5 @@
+# CSE-106 Lab_1 Q1
+# Tyler Brittain
 class TooShort(Exception):
     """Raised when not enough entries"""
     pass
@@ -14,7 +16,7 @@ try:
         sum += float(i)
     print(f'{sum}')
 except(ValueError):
-    print("Error: non int value detected")
+    print("Error: non numeric value detected")
 except(TooShort):
     print("Error: not enough entries")
 

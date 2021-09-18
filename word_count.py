@@ -1,4 +1,6 @@
-# Should there be 3 or 2
+# CSE-106 Lab_1 Q3
+# Tyler Brittain
+
 count = 0
 word = input("Please enter a word: ").lower()
 with open("PythonSummary.txt", "r") as file:
@@ -8,4 +10,4 @@ with open("PythonSummary.txt", "r") as file:
         for i in curLine:
             count += i.count(word)
         line = file.readline()
-print(f"The word {word} appears {count} times.")
+print(f"The word '{word}' appears {count} times.")
