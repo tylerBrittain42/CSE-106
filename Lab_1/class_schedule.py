@@ -33,7 +33,7 @@ Stat: on average, students get {self.avg}% in this course
 
 courses = []
 
-with open("Lab_1/classesInput.txt", "r") as file:
+with open("classesInput.txt", "r") as file:
     line = file.readline()
     total_classes = int(line)
     cur_class = 0
@@ -63,7 +63,7 @@ with open("Lab_1/classesInput.txt", "r") as file:
 #     i.printSummary()
 #     print()
 
-with open('Lab_1/schedule_output.txt',"a") as file:
+with open('class_schedule_output.txt',"a") as file:
     for i in courses:
         file.write(i.returnSummary())
         print(i.returnSummary())
