@@ -23,7 +23,7 @@ def displayOptions():
     print("5) Exit")
 
 
-with open('grades.txt',"r") as file:
+with open('Lab_1/grades.txt',"r") as file:
     grades = json.load(file)
 
 option = None
@@ -61,5 +61,5 @@ while(option != 5):
     print()
     print()
 
-    with open("grades.txt", "w") as outfile:
+    with open("Lab_1/grades.txt", "w") as outfile:
         json.dump(grades,outfile)

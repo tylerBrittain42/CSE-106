@@ -21,9 +21,19 @@ class course:
         print(f"Lecture Time: {self.start} - {self.end}")
         print(f"Stat: on average, students get {self.avg}% in this course")
 
+    def returnSummary(self):
+        return f"""
+Course {self.number}: {self.id}: {self.name}
+Number of Credits: {self.credits}
+Days of Lectures: {self.days}
+Lecture Time: {self.start} - {self.end}
+Stat: on average, students get {self.avg}% in this course
+        """
+
+
 courses = []
 
-with open("classesInput.txt", "r") as file:
+with open("Lab_1/classesInput.txt", "r") as file:
     line = file.readline()
     total_classes = int(line)
     cur_class = 0
@@ -48,6 +58,13 @@ with open("classesInput.txt", "r") as file:
         
         courses.append(course(cur_class + 1,department,id,name,credits,days,start,end,avg))
         cur_class += 1
-for i in courses:
-    i.printSummary()
-    print()
+
+# for i in courses:
+#     i.printSummary()
+#     print()
+
+with open('Lab_1/schedule_output.txt',"a") as file:
+    for i in courses:
+        file.write(i.returnSummary())
+        print(i.returnSummary())
+        print()     
