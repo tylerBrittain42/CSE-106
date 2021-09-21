@@ -60,8 +60,16 @@ temp_range = weather_frame.loc[((weather_frame['actual_min_temp']) < 60) & (weat
 # print(temp_range)
 
 
-# Q 4.1
+# # Q 4.1
 
+four_one = weather_frame.loc()[:,["date","actual_min_temp","actual_max_temp"]]
+print(type(four_one))
+# four_one.plot(x="date",y=["actual_min_temp","actual_max_temp"],color=['blue','red'],title="Min vs. Max temps",legend=['aaa','bbb'],ylabel="Temperature")
+# plt.show()
+# print('plotted')    
 
-
-# Q 4.2
+# # Q 4.2
+# four_two = weather_frame.loc()[:,["actual_precipitation"]]
+# # print(four_two)
+# four_two.plot.hist(title="Precipitation").set_xlabel("precipation level(inches)")
+# plt.show()
