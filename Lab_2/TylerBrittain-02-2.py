@@ -18,11 +18,11 @@ def inputArr():
     return arr
 
         
-userInput = True
+userInput = False
 
-if(userInput == True):
-    A = np.array([[1,2,3,4],[4,3,2,1],[2,1,3,4],[3,4,1,2]])
-    B = np.array([[5,6,7,8],[8,7,6,5],[7,8,5,6],[2,3,5,1]])
+if(userInput == False):
+    A = np.array([[1,2,3],[4,5,6],[7,8,9]])
+    B = np.array([[3,1,4],[2,6,1],[2,9,7]])
 else:
     print('Creating Matrix A')
     A = inputArr()
