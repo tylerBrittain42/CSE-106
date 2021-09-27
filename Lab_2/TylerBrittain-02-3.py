@@ -22,7 +22,7 @@ print('Days where the actual max temp is the record max temp')
 print(q33)
 
 # Q4
-oct_rain = weather_frame.loc[(pd.to_datetime(weather_frame['date']) >= '2014-07-01') & (pd.to_datetime(weather_frame['date']) <= '2014-07-31'),"actual_precipitation"]
+oct_rain = weather_frame.loc[(pd.to_datetime(weather_frame['date']) >= '2014-10-01') & (pd.to_datetime(weather_frame['date']) <= '2014-10-31'),"actual_precipitation"]
 print("\n---Question Four---")
 print(f'The sum of October 2014 rainfall is {oct_rain.sum()}')
 
