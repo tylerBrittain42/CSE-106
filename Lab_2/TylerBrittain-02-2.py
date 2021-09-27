@@ -1,6 +1,13 @@
 import numpy as np
 from numpy import linalg
 
+'''
+A) Not sure what this means
+B) Not sure what this means
+D) We can determine the eigenvalues of its inverse by taking the inverse
+E) The eigenvalues of b exists because it has an inverse
+'''
+
 # creates a numpy matrix from user input
 def inputArr():
 

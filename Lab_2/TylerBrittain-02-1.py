@@ -1,5 +1,13 @@
 import numpy as np
 
+'''
+A) Yes, change val
+B) Yes, change val
+c) Yes, use bincount to count instances
+d) yes, split on ' '
+'''
+
+
 # Q 1
 q1 = np.arange(2,10).reshape(4,2)
 print("---Question One---")
@@ -21,6 +29,7 @@ print("\n---Question Three---")
 print(q3)
 print('or with sets')
 print(q3_alt)
+
 
 # Q 1.4
 print("\n---Question Four---")

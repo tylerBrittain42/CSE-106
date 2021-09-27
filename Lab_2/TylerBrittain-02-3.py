@@ -3,6 +3,12 @@ import pandas as pd
 
 weather_frame = pd.read_csv("/home/tyler/Documents/Fall_2021/106_labs/Lab_2/weather_data.txt")
 
+'''
+A) Yes, swap max() with min()
+B)Yes, swap mean with min()
+E) Yes
+'''
+
 # Q1
 precip = weather_frame.loc[:,["date","actual_precipitation"]]
 precip = precip.loc[precip["actual_precipitation"] == precip["actual_precipitation"].max()]
