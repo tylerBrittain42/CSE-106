@@ -1,0 +1,35 @@
+
+body{
+    background-color: #e4efe7;
+
+}
+/* Using https://www.w3schools.com/css/css_navbar.asp
+to reference navbar */
+.navbar{
+    margin-bottom: 200px;
+    background-color:bisque;
+    position: fixed;
+    display: block;
+    /* width: 100%; */
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    float:left
+}
+
+.navbar li a{
+    display: inline;
+    padding: 8px;
+}
+
+.center{
+    margin: 100px auto 0 auto;
+    width: 50%;
+
+}
