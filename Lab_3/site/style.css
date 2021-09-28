@@ -10,7 +10,8 @@ to reference navbar */
     background-color:bisque;
     position: fixed;
     display: block;
-    /* width: 100%; */
+    width: 100%;
+    top: 0
 }
 
 .navbar ul {
@@ -28,8 +29,20 @@ to reference navbar */
     padding: 8px;
 }
 
-.center{
+.centerImage{
     margin: 100px auto 0 auto;
-    width: 50%;
+    display: block;
+}
 
+.half{
+    width: 75%;
+}
+
+.center{
+    text-align: center;
+}
+
+.article{
+    width: 50%;
+    margin: 0 auto 0 auto;
 }
