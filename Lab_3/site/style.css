@@ -2,23 +2,26 @@
 body{
     background-color: #e4efe7;
     font-family: "Lucida Console", "Courier New", monospace;
+    color: #9D9D9D;
+
 }
 
+
+/* Header default formatting */
 h1{
     font-size: 3em;
+}
+h2{
+    font-size: 2.25em;
 }
 h3{
     font-size: 1.5em;
 }
 
 
-.heading{
-    color: #6d6d7b;
-}
-.content {
-    color: #9D9D9D;
 
-}
+/* Navbar */
+
 /* Using https://www.w3schools.com/css/css_navbar.asp
 to reference navbar */
 .navbar{
@@ -45,25 +48,88 @@ to reference navbar */
     padding: 8px;
 }
 
+
+
+/* Centering  and Media*/
 .centerImage{
     margin: 100px auto 0 auto;
     display: block;
 }
 
-.half{
-    width: 75%;
+.centerVideo{
+    margin: 0 auto 0 auto;
+    display: block;
 }
 
 .center{
     text-align: center;
 }
 
+.half{
+    width: 75%;
+}
+
+
+
+/* Article formatting */
 .article{
     width: 50%;
     margin: 0 auto 0 auto;
     padding: 1em 1em;
 }
 
+.heading{
+    color: #6d6d7b;
+}
+
+.padding-example{
+    padding: 1em 5em;
+    background-color: white;
+}
+
 .icon{
     width: 5em;
+}
+
+
+
+/* List formatting */
+.characters{
+    padding: 2em 2em;
+    background-color: gray;
+    margin-bottom: 5em;
+
+}
+.characters li{
+    color: wheat;
+    padding: 0.5em 0;
+}
+
+
+
+/* Flex box formatting */
+.container{
+    display: flex;
+    height: 15em;
+    justify-content: space-evenly;
+}
+
+
+
+/* Table formatting */
+table{
+    margin: 0 auto 0 auto;
+    border: 1px solid #6d6d7b;
+}
+
+.table-header th{
+    border-bottom: 1px solid #6d6d7b; 
+}
+
+tr:nth-child(even) {
+    background-color: #F3EEE1;
+}
+
+th{
+    padding:10px;
 }
