@@ -24,6 +24,8 @@ function createListeners() {
     buttons.forEach(ele => {
         ele.addEventListener('click', () => {
 
+            if (document.querySelector("#selected"))
+                document.querySelector('#selected').id = ""
 
             //manipulating everything based on inner text value
             const val = ele.innerText
@@ -34,6 +36,7 @@ function createListeners() {
                     a = String(execute(a,b,operation))
                 b = ''
                 operation = val
+                ele.id="selected"
             }
             else if(val === '(-)'){
                 if (b !== '')
@@ -53,15 +56,21 @@ function createListeners() {
             else if(val === 'ENTER'){
                 a = String(execute(a,b,operation))
             }
-            // else if(val === '.'){
-            //     console.log('HANDLE ME')
-            // }
+            else if(val === '.'){
+                if (b.includes('.') === false){
+                    appendVal(val)
+                }
+            }
             else{
                 appendVal(val)
             }
-            //Enter
-            //Else (numeric)
             last = val
+            if(String(a) === "NaN"){
+                a = "0"
+            }
+            if(String(b) === "NaN"){
+                b = "0"
+            }
             display.innerText = ((val === 'ENTER' || val === 'x' || val === '/' || val === '+' || val === '-' || bool === true) ? a:b)
             console.log('post-op')
             console.log(`a:${a}\nb:${b}\nop:${operation}`)
@@ -71,7 +80,7 @@ function createListeners() {
     });
 }
 
-function appendVal(val){
+function appendVal(val){ 
     b = String(b)
     if (b.charAt(0) === '0')
         b = b.substr(1,b.length)
