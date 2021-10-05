@@ -4,7 +4,7 @@ let a = '0'
 let b = '0'
 let display_val = 0
 let last = 'ENTER'
-
+let bool = false
 createListeners()
 
 const display = document.getElementById('display')
@@ -32,11 +32,17 @@ function createListeners() {
             if (val === 'x' || val === '/' || val === '+' || val === '-'){
                 if (last !== 'ENTER')
                     a = String(execute(a,b,operation))
-                b = 0
+                b = ''
                 operation = val
             }
             else if(val === '(-)'){
-                b *= -1
+                if (b !== '')
+                    b *= -1
+                else{
+                    a *= -1
+                    bool = true
+                }
+                console.log('neg')
             }
         
             else if(val === 'CLR'){
@@ -56,22 +62,20 @@ function createListeners() {
             //Enter
             //Else (numeric)
             last = val
-            display.innerText = ((val === 'ENTER' || val === 'x' || val === '/' || val === '+' || val === '-') ? a:b)
+            display.innerText = ((val === 'ENTER' || val === 'x' || val === '/' || val === '+' || val === '-' || bool === true) ? a:b)
             console.log('post-op')
             console.log(`a:${a}\nb:${b}\nop:${operation}`)
+            bool = false
 
         })
     });
 }
 
 function appendVal(val){
-    // b = b * 10 + Number(val)
-    // console.log('FUCK')
     b = String(b)
     if (b.charAt(0) === '0')
         b = b.substr(1,b.length)
     b += val 
-    // console.log('ME')
 }
 
 
