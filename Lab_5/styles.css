@@ -1,0 +1,40 @@
+table{
+    margin: 0 auto 0 auto;
+    border: 1px solid #6d6d7b;
+}
+
+.table-header th{
+    border-bottom: 1px solid #6d6d7b; 
+}
+
+tr:nth-child(even) {
+    background-color: #F3EEE1;
+}
+
+th{
+    padding:10px;
+}
+
+.navbar{
+    margin-bottom: 500px;
+    background-color:bisque;
+    position: fixed;
+    display: block;
+    width: 100%;
+    top: 0
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    float:left
+}
+
+.navbar li a{
+    display: inline;
+    padding: 8px;
+}
