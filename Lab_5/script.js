@@ -24,7 +24,7 @@ function handleAction() {
       addStudent(name, grade);
       break;
     case "update":
-      updateStudent();
+      updateStudent(name, grade);
       break;
     case "delete":
       deleteStudent();
@@ -78,8 +78,23 @@ function addStudent(stu_name, stu_grade) {
 
 }
 
-function updateStudent() {
+function updateStudent(stu_name, stu_grade) {
   console.log("updatestudent called");
+  req_params ={
+    method: 'PUT',
+    headers:{
+      "Content-Type":"application/json"
+    },
+    body:JSON.stringify({"grade":stu_grade})
+  }
+  fetch(
+    "https://amhep.pythonanywhere.com/grades/" + stu_name.replace(" ", "%20"), req_params
+  )
+  .then((res) => {
+    console.log(res.status)
+  })
+
+
 }
 
 function deleteStudent() {
