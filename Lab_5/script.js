@@ -1,19 +1,12 @@
-// const student_list = a();
-// console.log(student_list)
-
-// console.log("a");
-// console.log(student_list)
-
 //DONT FORGET TO HANDLE ERRORS
 
 const form = document.querySelector("#user-actions");
 form.addEventListener("submit", handleAction);
-// getStudent('Robert Miller')
 
 function handleAction() {
   const action = form.elements.action.value;
   const name = form.elements.name.value;
-  const grade = form.elements.grade.value
+  const grade = form.elements.grade.value;
 
   switch (action) {
     case "get":
@@ -36,6 +29,7 @@ function handleAction() {
   event.preventDefault();
 }
 
+// error handling completed
 function getStudent(stu_name) {
   const stu_grade = form.elements.grade;
   fetch(
@@ -43,17 +37,15 @@ function getStudent(stu_name) {
   )
     .then((res) => {
       if (!res.ok) {
-        throw new Error();
-      }
-      else
-        return res.json();
+        throw new Error(res.status);
+      } else return res.json();
     })
     .then((data) => {
       stu_grade.value = data[stu_name];
     })
-    .catch(() => {
-      stu_grade.value = 'Error caught'
-      console.log("getStudent error caught");
+    .catch((status) => {
+      console.log(status);
+      alert(status);
     });
 }
 
@@ -61,58 +53,78 @@ function getStudent(stu_name) {
 // Error handling not implemented
 function addStudent(stu_name, stu_grade) {
   console.log("addStudent called");
-  console.log(`${stu_name} has a grade of ${stu_grade}`)
+  console.log(`${stu_name} has a grade of ${stu_grade}`);
 
   req_params = {
-    method: 'POST',
-    headers:{
-      "Content-Type": "application/json"
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify({"name":stu_name,"grade":Number(stu_grade)})
-  }
+    body: JSON.stringify({ name: stu_name, grade: Number(stu_grade) }),
+  };
 
-  fetch("https://amhep.pythonanywhere.com/grades",req_params)
-  .then((res) => {
-    console.log(res.status)
-  })
-
+  fetch("https://amhep.pythonanywhere.com/grades", req_params)
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(res.status);
+      } else {
+        console.log(res.status);
+      }
+    })
+    .catch((status) => {
+      console.log(status);
+      alert(status);
+    });
 }
 
 function updateStudent(stu_name, stu_grade) {
   console.log("updatestudent called");
-  req_params ={
-    method: 'PUT',
-    headers:{
-      "Content-Type":"application/json"
+  req_params = {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
     },
-    body:JSON.stringify({"grade":stu_grade})
-  }
+    body: JSON.stringify({ grade: stu_grade }),
+  };
   fetch(
-    "https://amhep.pythonanywhere.com/grades/" + stu_name.replace(" ", "%20"), req_params
+    "https://amhep.pythonanywhere.com/grades/" + stu_name.replace(" ", "%20"),
+    req_params
   )
-  .then((res) => {
-    console.log(res.status)
-  })
-
-
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(res.status);
+      } else {
+        console.log(res.status);
+      }
+    })
+    .catch((status) => {
+      console.log(status);
+      alert(status);
+    });
 }
 
 function deleteStudent(stu_name) {
   console.log("deleteStudent called");
 
-  req_params ={
-    method: 'DELETE',
+  req_params = {
+    method: "DELETE",
     headers: {
-      'Content-Type':'application/json'
-    }
-  }
+      "Content-Type": "application/json",
+    },
+  };
   fetch(
-    "https://amhep.pythonanywhere.com/grades/" + stu_name.replace(" ", "%20"), req_params
+    "https://amhep.pythonanywhere.com/grades/" + stu_name.replace(" ", "%20"),
+    req_params
   )
-  .then((res) => {
-    console.log(res.status)
-  })
-
-
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(res.status);
+      } else {
+        console.log(res.status);
+      }
+    })
+    .catch((status) => {
+      console.log(status);
+      alert(status);
+    });
 }
-
