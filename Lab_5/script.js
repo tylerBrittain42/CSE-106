@@ -27,7 +27,7 @@ function handleAction() {
       updateStudent(name, grade);
       break;
     case "delete":
-      deleteStudent();
+      deleteStudent(name);
       break;
     default:
       console.log("error: invalid action");
@@ -97,8 +97,23 @@ function updateStudent(stu_name, stu_grade) {
 
 }
 
-function deleteStudent() {
+function deleteStudent(stu_name) {
   console.log("deleteStudent called");
+
+  req_params ={
+    method: 'DELETE',
+    headers: {
+      'Content-Type':'application/json'
+    }
+  }
+  fetch(
+    "https://amhep.pythonanywhere.com/grades/" + stu_name.replace(" ", "%20"), req_params
+  )
+  .then((res) => {
+    console.log(res.status)
+  })
+
+
 }
 
 function jsonToList() {
@@ -129,6 +144,3 @@ async function a() {
   }
 }
 
-function req_format(string) {
-  string.replace(" ", "%20");
-}
