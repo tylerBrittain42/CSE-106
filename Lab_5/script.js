@@ -13,6 +13,7 @@ form.addEventListener("submit", handleAction);
 function handleAction() {
   const action = form.elements.action.value;
   const name = form.elements.name.value;
+  const grade = form.elements.grade.value
 
   switch (action) {
     case "get":
@@ -20,7 +21,7 @@ function handleAction() {
       getStudent(name);
       break;
     case "create":
-      addStudent();
+      addStudent(name, grade);
       break;
     case "update":
       updateStudent();
@@ -56,8 +57,25 @@ function getStudent(stu_name) {
     });
 }
 
-function addStudent() {
+// assuming valid inputs
+// Error handling not implemented
+function addStudent(stu_name, stu_grade) {
   console.log("addStudent called");
+  console.log(`${stu_name} has a grade of ${stu_grade}`)
+
+  req_params = {
+    method: 'POST',
+    headers:{
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({"name":stu_name,"grade":Number(stu_grade)})
+  }
+
+  fetch("https://amhep.pythonanywhere.com/grades",req_params)
+  .then((res) => {
+    console.log(res.status)
+  })
+
 }
 
 function updateStudent() {
