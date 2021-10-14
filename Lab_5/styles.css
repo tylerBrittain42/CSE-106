@@ -1,3 +1,7 @@
+body {
+  background-color: #9494aa;
+}
+
 table {
   margin: 0 auto 0 auto;
   border: 1px solid #6d6d7b;
@@ -9,6 +13,9 @@ table {
 
 tr:nth-child(even) {
   background-color: #f3eee1;
+}
+tr:nth-child(odd) {
+  background-color: whitesmoke;
 }
 
 th {
@@ -37,4 +44,25 @@ th {
 .navbar li a {
   display: inline;
   padding: 8px;
+}
+
+input {
+  margin: 0.5em auto 0.5em auto;
+}
+
+input[type="text"] {
+  width: 100%;
+}
+
+.content {
+  width: 75%;
+  margin: 3em auto 0 auto;
+  padding: 1em;
+  border: 1px solid black;
+  border-radius: 25px;
+  background-color: whitesmoke;
+}
+
+.title {
+  text-align: center;
 }
