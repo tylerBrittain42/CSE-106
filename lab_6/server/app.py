@@ -1,6 +1,9 @@
 from flask import Flask, request
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
+
 
 @app.route('/')
 def hello_world():
@@ -12,6 +15,7 @@ def hello_world():
 @app.route('/grades', methods=["GET","POST"])
 def grade_stuff():
     if request.method == 'GET':
+        print(request)
         return "GOT grades"
     elif request.method == 'POST':
         return('Grade post recieved')
