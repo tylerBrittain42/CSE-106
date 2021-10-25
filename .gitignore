@@ -13,3 +13,7 @@ Lab_4/submission
 lab_6/server/env
 lab_6/server/__pycache__
 lab_6/server/grades.txt
+lab_7/server/__pycache__
+lab_7/server/env
+lab_7/server/grades.txt
+lab_7/server/grades.sqlite

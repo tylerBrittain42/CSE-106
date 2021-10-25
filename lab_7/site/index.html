@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <ul>
+        <li>Navbar</li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="view_all.html">All students</a></li>
+      </ul>
+    </div>
+    <div class="content">
+      <h1 class="title">Student Tool</h1>
+      <br />
+      <form id="user-actions" action="">
+        <label for="name">Student name:</label>
+        <input type="text" id="name" name="name" />
+        <br />
+        <label for="grade">Grade:</label>
+        <input type="text" id="grade" name="grade" />
+        <br />
+        <input type="radio" name="action" id="get" value="get" />
+        <label for="get">Get Grade info</label>
+        <br />
+        <input type="radio" name="action" id="create" value="create" />
+        <label for="create">Add new student</label>
+        <br />
+        <input type="radio" name="action" id="update" value="update" />
+        <label for="update">Update new grade info</label>
+        <br />
+        <input type="radio" name="action" id="delete" value="delete" />
+        <label for="delete">Delete Grade info</label>
+        <br />
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
