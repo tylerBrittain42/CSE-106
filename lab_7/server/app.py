@@ -1,22 +1,33 @@
-from os import abort
+# from os import abort
 from flask import Flask, request, abort
 from flask_cors import CORS
+from flask_sqlalchemy import SQLAlchemy
 import json
 
 app = Flask(__name__)
 CORS(app)
 
+app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///grades.sqlite'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
 
-# have not used error handling yet
-# check error for when grades.txt empty
 
-#implement success code(200) responses
 
 with open('grades.txt',"r") as file:
     try:
         grades = json.load(file)
     except:
         grades = {}
+
+
+
+class Grade(db.Model):
+    name = db.Column(db.String, primary_key=True)
+    grade = db.Column(db.String)
+
+    def __repr__(self):
+        return f'{self.name} : {self.grade}'
+
 
 
 @app.route('/')
@@ -69,3 +80,25 @@ def delete_student(name):
         json.dump(grades,outfile)
 
     return(f"DELETE for {name} recieved") 
+
+
+@app.route('/reset')
+def reset_db():
+
+    # Deleting everything in table
+    db.session.query(Grade).delete()
+
+    # Adding new users to table
+    steve = Grade(name='steve',grade='69')
+    db.session.add(steve)
+
+    phil = Grade(name='philly',grade='100')
+    db.session.add(phil)
+
+    tyler = Grade(name='tyler',grade='42')
+    db.session.add(tyler)
+
+
+
+    db.session.commit()
+    return '<h1> reset triggered </h1>'
