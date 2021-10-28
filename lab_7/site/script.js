@@ -60,7 +60,7 @@ function addStudent(stu_name, stu_grade) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ name: stu_name, grade: Number(stu_grade) }),
+    body: JSON.stringify({ name: stu_name, grade: stu_grade }),
   };
 
   fetch(" http://127.0.0.1:5000/grades", req_params)

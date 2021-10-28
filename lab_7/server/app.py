@@ -12,15 +12,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 
-
-with open('grades.txt',"r") as file:
-    try:
-        grades = json.load(file)
-    except:
-        grades = {}
-
-
-
 class Grade(db.Model):
     name = db.Column(db.String, primary_key=True)
     grade = db.Column(db.String)
@@ -48,11 +39,11 @@ def grade_stuff():
         
     elif request.method == 'POST':
         content = request.get_json()
-        if content['name'] in grades.keys():
+        if Grade.query.filter_by(name=content['name']).first() is not None:
             abort(409)
-        grades[content['name']] = content['grade']
-        with open("grades.txt", "w") as outfile:
-            json.dump(grades,outfile)
+        new_user = Grade(name=content['name'],grade=content['grade'])
+        db.session.add(new_user)
+        db.session.commit()
         return('Grade post recieved')
 
 
@@ -66,26 +57,29 @@ def student_grade(stu_name):
 
 
 # PUT /grades/<Student Name>
-@app.route('/grades/<name>', methods=["PUT"])
-def put_student(name):
+@app.route('/grades/<stu_name>', methods=["PUT"])
+def put_student(stu_name):
     content = request.get_json()
-    if name not in grades.keys():
+
+    res = Grade.query.filter_by(name=stu_name).first()
+    if res is None:
         abort(404)
-    grades[name] = content['grade']
-    with open("grades.txt", "w") as outfile:
-        json.dump(grades,outfile)
-    return(f"PUT for {name} recieved")
+    res.grade = content['grade']
+    db.session.commit()
+
+    return(f"PUT for {stu_name} recieved")
 
 # DELETE /grades/<Student Name>
-@app.route('/grades/<name>', methods=["DELETE"])
-def delete_student(name):
-    if name not in grades.keys():
-        abort(404)
-    del grades[name]
-    with open("grades.txt", "w") as outfile:
-        json.dump(grades,outfile)
+@app.route('/grades/<stu_name>', methods=["DELETE"])
+def delete_student(stu_name):
 
-    return(f"DELETE for {name} recieved") 
+    res = Grade.query.filter_by(name=stu_name).first()
+    if res is None:
+        abort(404)
+    db.session.delete(res)
+    db.session.commit()
+
+    return(f"DELETE for {stu_name} recieved") 
 
 
 @app.route('/reset')
@@ -101,7 +95,7 @@ def reset_db():
     phil = Grade(name='philly',grade='100')
     db.session.add(phil)
 
-    tyler = Grade(name='tyler',grade='42')
+    tyler = Grade(name='tyler',grade='42a')
     db.session.add(tyler)
 
 
@@ -114,5 +108,4 @@ def listToDict(llist):
     dictt = {}
     for ele in llist:
         dictt[ele.name] = ele.grade
-        
     return dictt
