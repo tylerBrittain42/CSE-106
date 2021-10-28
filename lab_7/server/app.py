@@ -25,6 +25,9 @@ class Grade(db.Model):
     name = db.Column(db.String, primary_key=True)
     grade = db.Column(db.String)
 
+    def json(self):
+        return {self.name : self.grade}
+
     def __repr__(self):
         return f'{self.name} : {self.grade}'
 
@@ -40,7 +43,9 @@ def index():
 @app.route('/grades', methods=["GET","POST"])
 def grade_stuff(): 
     if request.method == 'GET':
-        return grades
+        gradess = Grade.query.all()
+        return listToDict(gradess)
+        
     elif request.method == 'POST':
         content = request.get_json()
         if content['name'] in grades.keys():
@@ -52,11 +57,12 @@ def grade_stuff():
 
 
 # GET /grades/<Student name>
-@app.route('/grades/<name>')
-def student_grade(name):
-    if name not in grades.keys():
+@app.route('/grades/<stu_name>')
+def student_grade(stu_name):
+    res = Grade.query.filter_by(name=stu_name).first()
+    if res is None:
         abort(404)
-    return {name : grades[name]}
+    return {res.name:res.grade}
 
 
 # PUT /grades/<Student Name>
@@ -102,3 +108,11 @@ def reset_db():
 
     db.session.commit()
     return '<h1> reset triggered </h1>'
+
+
+def listToDict(llist):
+    dictt = {}
+    for ele in llist:
+        dictt[ele.name] = ele.grade
+        
+    return dictt
